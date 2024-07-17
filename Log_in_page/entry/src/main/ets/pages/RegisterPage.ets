@@ -65,11 +65,14 @@ struct LoginPage {
         message: $r('app.string.input_empty_tips')
       })
     } else {
-      this.isShowProgress = true;
+      prompt.showToast({
+        message: $r('app.string.wait_tips')
+      })
+      //this.isShowProgress = true;
       if (this.timeOutId === -1) {
         this.timeOutId = setTimeout(() => {
-          this.isShowProgress = false;
-          this.timeOutId = -1;
+          //this.isShowProgress = false;
+          //this.timeOutId = -1;
           console.info(`pages/MainPage`)
           router.pushUrl({ url: 'pages/MainPage' }).then(() => {
             console.info('Succeeded in jumping to the second page.')
@@ -84,6 +87,9 @@ struct LoginPage {
   Back() {
       //this.isShowProgress = true;
       //if (this.timeOutId === -1) {
+    prompt.showToast({
+      message: $r('app.string.wait_tips')
+    })
         this.timeOutId = setTimeout(() => {
           //this.isShowProgress = false;
           //this.timeOutId = -1;

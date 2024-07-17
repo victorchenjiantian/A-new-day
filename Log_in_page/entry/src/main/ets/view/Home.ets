@@ -16,6 +16,8 @@
 import CommonConstants from '../common/constants/CommonConstants';
 import mainViewModel from '../viewmodel/MainViewModel';
 import ItemData from '../viewmodel/ItemData';
+import prompt from '@ohos.promptAction';
+import router from '@ohos.router';
 
 /**
  * Home tab content
@@ -23,6 +25,35 @@ import ItemData from '../viewmodel/ItemData';
 @Component
 export default struct Home {
   private swiperController: SwiperController = new SwiperController();
+  private timeOutId: number = -1;
+  private urls: string = "0";
+
+  start(t) {
+    t = "a"
+    if (t == "a"){
+      this.urls = 'pages/alarm'
+    }
+
+
+    /*this.isShowProgress = true;
+    if (this.timeOutId === -1) {*/
+    prompt.showToast({
+      message: $r('app.string.wait_tips')
+    })
+    this.timeOutId = setTimeout(() => {
+      /*this.isShowProgress = false;
+      this.timeOutId = -1;*/
+      console.info(`pages/RegisterPage`)
+      router.pushUrl({ url: this.urls }).then(() => {
+        console.info('Succeeded in jumping to the second page.')
+
+      }).catch((err) => {
+        console.error(`Failed to jump to the second page. Code is ${err.code}, message is ${err.message}`)
+      })
+    }, CommonConstants.LOGIN_DELAY_TIME);
+
+    //}
+  }
 
   build() {
     Scroll() {
@@ -78,16 +109,23 @@ export default struct Home {
           ForEach(mainViewModel.getSecondGridData(), (secondItem: ItemData) => {
             GridItem() {
               Column() {
-                Text(secondItem.title)
-                  .fontSize($r('app.float.normal_text_size'))
-                  .fontWeight(FontWeight.Medium)
-                Text(secondItem.others)
-                  .margin({ top: $r('app.float.home_list_margin') })
-                  .fontSize($r('app.float.little_text_size'))
-                  .fontColor($r('app.color.home_grid_fontColor'))
+
+                  Text(secondItem.title)
+                    .fontSize($r('app.float.normal_text_size'))
+                    .fontWeight(FontWeight.Medium)
+
+                .backgroundColor(Color.White)
+                  Text(secondItem.others)
+                    .margin({ top: $r('app.float.home_list_margin') })
+                    .fontSize($r('app.float.little_text_size'))
+                    .fontColor($r('app.color.home_grid_fontColor'))
+
               }
               .alignItems(HorizontalAlign.Start)
             }
+            .onClick(()=>{
+              this.start(secondItem.title);
+            })
             .padding({ top: $r('app.float.home_list_padding'), left: $r('app.float.home_list_padding') })
             .borderRadius($r('app.float.home_backgroundImage_borderRadius'))
             .align(Alignment.TopStart)

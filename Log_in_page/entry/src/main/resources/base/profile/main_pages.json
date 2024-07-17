@@ -2,6 +2,12 @@
   "src": [
     "pages/LoginPage",
     "pages/MainPage",
-    "pages/RegisterPage"
+    "pages/RegisterPage",
+    "pages/alarm",
+    "pages/efficiency",
+    "pages/no_phone",
+    "pages/timer",
+    "pages/MainIndex",
+    "pages/DetailIndex"
   ]
 }
