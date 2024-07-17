@@ -31,7 +31,7 @@ export default struct Home {
   start(t) {
     t = "a"
     if (t == "a"){
-      this.urls = 'pages/alarm'
+      this.urls = 'pages/MainIndex'
     }
 
 

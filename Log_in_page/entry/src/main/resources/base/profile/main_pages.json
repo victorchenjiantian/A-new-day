@@ -8,6 +8,8 @@
     "pages/no_phone",
     "pages/timer",
     "pages/MainIndex",
-    "pages/DetailIndex"
+    "pages/DetailIndex",
+    "pages/schedule",
+    "pages/add_schedule"
   ]
 }
