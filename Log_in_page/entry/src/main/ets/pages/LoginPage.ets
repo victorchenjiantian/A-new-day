@@ -140,11 +140,22 @@ struct LoginPage {
       Blank()
 
 
-      TextInput({ placeholder: '请输入用户名' })
+      TextInput({ placeholder: '  请输入用户名' })
         .margin({ bottom: '10vp' })
-
-      TextInput({ placeholder: '请输入密码' })
         .type(InputType.Password)
+        .maxLength(CommonConstants.INPUT_ACCOUNT_LENGTH)
+        .inputStyle()
+        .onChange((value: string) => {
+          this.account = value;
+        })
+
+      TextInput({ placeholder: '  请输入密码' })
+        .type(InputType.Password)
+        .maxLength(CommonConstants.INPUT_PASSWORD_LENGTH)
+        .inputStyle()
+        .onChange((value: string) => {
+          this.password = value;
+        })
 
       Row() {
         Text("短信验证码").fontColor("#007DFF")
@@ -191,6 +202,7 @@ struct LoginPage {
       Blank()
       Text("其他登录方式")
         .fontColor($r('app.color.other_login_text_color'))
+        .backgroundColor(Color.White)
         .fontSize($r('app.float.little_text_size'))
         .fontWeight(FontWeight.Medium)
         .margin({ top: $r('app.float.other_login_margin_top'), bottom: $r('app.float.other_login_margin_bottom') })

@@ -88,23 +88,24 @@ struct DetailIndex {
           router.back();
         })
       }
-      Text("a")
+      //Text("a")
 
-      TextInput({ placeholder: "Plane"})
+
+      TextInput({ placeholder: "开始时间"})
         .maxLength(CommonConstants.INPUT_PASSWORD_LENGTH)
-
-      Text("a")
-      TextInput({ placeholder: "Time"})
+        .margin(10)
+      //Text("a")
+      TextInput({ placeholder: "持续时间（min）"})
         .maxLength(CommonConstants.INPUT_PASSWORD_LENGTH)
-      SettingItem({
-        settingInfo: $repeatSettingArr
-      })
-      Text("a")
-      SettingItem({
-        settingInfo: $alarmSettingInfoArr
-      })
+        .margin(10)
+      TextInput({ placeholder: "内容"})
+        .maxLength(CommonConstants.INPUT_PASSWORD_LENGTH)
+        .margin(10)
 
-      Text("a")
+
+
+
+      //Text("a")
       Blank()
 
       Button($r('app.string.delete'))

@@ -112,7 +112,7 @@ struct LoginPage {
 
   build() {
     Column() {
-      Image($r('app.media.SJTU'))
+      Image($r('app.media.img_2'))
         .width($r('app.float.logo_image_size'))
         .height($r('app.float.logo_image_size'))
         .margin({ top: $r('app.float.logo_margin_top'), bottom: $r('app.float.logo_margin_bottom') })
@@ -120,39 +120,30 @@ struct LoginPage {
         .fontSize($r('app.float.page_title_text_size'))
         .fontWeight(FontWeight.Medium)
         .fontColor($r('app.color.title_text_color'))
-
-      Text($r('app.string.register_more'))
-        .fontSize($r('app.float.normal_text_size'))
-        .fontColor($r('app.color.login_more_text_color'))
-        .margin({ bottom: $r('app.float.login_more_margin_bottom'), top: $r('app.float.login_more_margin_top') })
-
-      TextInput({ placeholder: $r('app.string.account') })
-        .maxLength(CommonConstants.INPUT_ACCOUNT_LENGTH)
-        .type(InputType.Number)
-        .inputStyle()
-        .onChange((value: string) => {
-          this.account = value;
+      Text("欢迎登录 A New Day")
+        .fontColor(Color.Gray)
+        .fontSize(14)
+        .margin({
+          top: '15vp'
         })
-      Line().lineStyle()
+      Blank()
 
-      TextInput({ placeholder: $r('app.string.password') })
-        .maxLength(CommonConstants.INPUT_PASSWORD_LENGTH)
+      TextInput({ placeholder: '请输入用户名' })
+        .margin({ bottom: '10vp' })
+
+      TextInput({ placeholder: '请输入密码' })
         .type(InputType.Password)
-        .inputStyle()
-        .onChange((value: string) => {
-          this.password = value;
-        })
-      Line().lineStyle()
 
       Row() {
-        //Text($r('app.string.message_login')).blueTextStyle()
-        Text($r('app.string.forgot_password')).blueTextStyle()
+        Text("短信验证码").fontColor("#007DFF")
+          .fontSize(12)
+          .margin({left:5})
+        //Text("忘记密码").fontColor("#007DFF").fontSize(12)
       }
-      .justifyContent(FlexAlign.SpaceBetween)
-      .width(CommonConstants.FULL_PARENT)
-      .margin({ top: $r('app.float.forgot_margin_top') })
+      .margin({ top: 10})
+      .width("100%").justifyContent(FlexAlign.SpaceBetween)
 
-      Button($r('app.string.register'), { type: ButtonType.Capsule })
+      Button("登录", { type: ButtonType.Capsule })
         .width(CommonConstants.BUTTON_WIDTH)
         .height($r('app.float.login_button_height'))
         .fontSize($r('app.float.normal_text_size'))
@@ -163,7 +154,7 @@ struct LoginPage {
           this.login();
         })
 
-      Button($r('app.string.back_to_log_in'), { type: ButtonType.Capsule })
+      Button("返回", { type: ButtonType.Capsule })
         .width(CommonConstants.BUTTON_WIDTH)
         .height($r('app.float.login_button_height'))
         .fontSize($r('app.float.normal_text_size'))
@@ -183,15 +174,23 @@ struct LoginPage {
       }
 
       Blank()
-      Text($r('app.string.other_login_method'))
+      Text("其他注册方式")
         .fontColor($r('app.color.other_login_text_color'))
         .fontSize($r('app.float.little_text_size'))
         .fontWeight(FontWeight.Medium)
         .margin({ top: $r('app.float.other_login_margin_top'), bottom: $r('app.float.other_login_margin_bottom') })
       Row({ space: CommonConstants.LOGIN_METHODS_SPACE }) {
-        this.imageButton($r('app.media.login_method1'))
-        this.imageButton($r('app.media.login_method2'))
-        this.imageButton($r('app.media.login_method3'))
+        Button() {
+          Image($r("app.media.wechat")).width(35).height(35)
+        }.backgroundColor(Color.Transparent)
+
+        Button() {
+          Image($r("app.media.QQ")).width(35).height(35)
+        }.backgroundColor(Color.Transparent)
+
+        Button() {
+          Image($r("app.media.weibo")).width(35).height(35)
+        }.backgroundColor(Color.Transparent)
       }
     }
     .backgroundColor($r('app.color.background'))
