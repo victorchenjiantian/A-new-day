@@ -37,7 +37,7 @@ export default struct BackContainer {
       })
 
       Text(this.header)
-        .fontSize(DimensionUtil.getFp($r('app.float.detail_title_font_size')))
+        .fontSize(20)
         .lineHeight(28)
         .margin({ left: 16 })
         .fontColor($r('app.color.grey_divider'))

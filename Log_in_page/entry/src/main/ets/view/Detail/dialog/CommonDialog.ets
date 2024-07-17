@@ -28,11 +28,11 @@ export default struct CommonDialog {
   build() {
     Column() {
       Text(this.title)
-        .fontSize(DimensionUtil.getFp($r('app.float.common_dialog_title_font_size')))
+        .fontSize(20)
         .width(CommonConstants.FULL_LENGTH)
         .fontColor($r('app.color.grey_divider'))
         .margin({
-          bottom: DimensionUtil.getVp($r('app.float.common_dialog_title_margin_vertical'))
+          bottom: 12
         })
       this.closer()
       Row() {
@@ -52,18 +52,18 @@ export default struct CommonDialog {
           })
         }
       }
-      .margin({ top: DimensionUtil.getVp($r('app.float.common_dialog_margin_vertical')) })
+      .margin({ top: 12 })
     }
     .width(CommonConstants.FULL_LENGTH)
-    .padding(DimensionUtil.getVp($r('app.float.common_dialog_padding')))
+    .padding(24)
     .justifyContent(FlexAlign.Center)
   }
 }
 
 @Extend(Button)
 function actionBtnStyle() {
-  .fontSize(DimensionUtil.getFp($r('app.float.common_dialog_button_font_size')))
-  .height(DimensionUtil.getVp($r('app.float.common_dialog_button_height')))
+  .fontSize(15)
+  .height(40)
   .layoutWeight(CommonConstants.DEFAULT_LAYOUT_WEIGHT)
   .fontColor($r('app.color.green_light'))
   .backgroundColor($r('app.color.trans_parent'))

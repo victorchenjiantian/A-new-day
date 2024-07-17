@@ -28,16 +28,16 @@ export default struct AlarmListItem {
       Column() {
         Row() {
           Text(this.mainModel.getNoonContent(this.alarmItem.hour))
-            .CommonTextAttr(DimensionUtil.getFp($r('app.float.alarms_item_noon_font_size')),
+            .CommonTextAttr(16,
               FontWeight.Regular)
           Text(this.mainModel.getTaskTimeContent(this.alarmItem.hour, this.alarmItem.minute))
-            .CommonTextAttr(DimensionUtil.getFp($r('app.float.alarms_item_time_font_size')),
+            .CommonTextAttr(24,
               FontWeight.Regular,
               { left: 4 })
         }
 
         Text(this.mainModel.getDescContent(this.alarmItem))
-          .CommonTextAttr(DimensionUtil.getFp($r('app.float.alarms_item_dec_font_size')),
+          .CommonTextAttr(14,
             FontWeight.Normal,
             { top: 2 },
             $r('app.float.alarms_item_desc_text_opacity'))

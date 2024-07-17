@@ -28,14 +28,14 @@ struct MainIndex {
   private mainModel: MainModel = MainModel.instant;
   @State alarmItems: Array<AlarmItem> = new Array();
   @State isAuth: boolean = false;
-/*
-  aboutToAppear() {
+
+/*  aboutToAppear() {
     let that = this;
     that.mainModel.queryAlarmsTasker((alarms: Array<AlarmItem>) => {
       that.alarmItems = alarms;
     })
   }
-  * */
+  **/
 
   build() {
     Column() {
