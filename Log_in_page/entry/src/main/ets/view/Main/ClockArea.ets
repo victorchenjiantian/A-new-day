@@ -23,7 +23,7 @@ export default struct ClockArea {
   private mainModel: MainModel = MainModel.instant;
   private drawInterval: number = CommonConstants.DEFAULT_NUMBER_NEGATIVE;
   @State showClock: boolean = true;
-  private canvasSize: number = DimensionUtil.getVp($r('app.float.clock_size'));
+  private canvasSize: number = 252;
   private clockRadius: number = this.canvasSize / CommonConstants.DEFAULT_DOUBLE - CommonConstants.DEFAULT_DOUBLE;
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   private renderContext: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
@@ -118,7 +118,7 @@ export default struct ClockArea {
       + MainConstant.DEFAULT_STRING_COLON
       + this.mainModel.fillZero(second);
     this.renderContext.save();
-    this.renderContext.font = DimensionUtil.getPx($r('app.float.clock_time_font_size'))
+    this.renderContext.font = 60
       + MainConstant.CLOCK_TIME_FONT_SIZE_UNIT;
     this.renderContext.beginPath();
     this.renderContext.textAlign = 'center';

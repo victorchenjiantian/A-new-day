@@ -24,7 +24,7 @@ export default struct AlarmList {
   @Link alarmItems: Array<AlarmItem>;
 
   build() {
-    List({ space: DimensionUtil.getVp($r('app.float.alarm_list_space')) }) {
+    List({ space: 12 }) {
       ForEach(this.alarmItems, (item: AlarmItem) => {
         ListItem() {
           AlarmListItem({ alarmItem: item })
@@ -34,11 +34,11 @@ export default struct AlarmList {
       }, (item: AlarmItem) => JSON.stringify(item))
     }
     .padding({
-      left: DimensionUtil.getVp($r('app.float.alarm_list_content_distance')),
-      right: DimensionUtil.getVp($r('app.float.alarm_list_content_distance'))
+      left: 12,
+      right: 12
     })
     .listDirection(Axis.Vertical)
     .layoutWeight(CommonConstants.DEFAULT_LAYOUT_WEIGHT)
-    .margin({ top: DimensionUtil.getVp($r('app.float.alarm_list_content_distance')) })
+    .margin({ top: 12 })
   }
 }

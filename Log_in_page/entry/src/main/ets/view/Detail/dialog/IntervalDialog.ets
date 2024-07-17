@@ -55,11 +55,11 @@ export default struct IntervalDialog {
 
   @Builder IntervalItem(title: string | Resource, intervalType: number) {
     Text(title)
-      .fontSize(DimensionUtil.getFp($r('app.float.interval_dialog_title_font_size')))
+      .fontSize(10)
       .width(CommonConstants.FULL_LENGTH)
       .textAlign(TextAlign.Start)
       .margin({
-        top: DimensionUtil.getVp($r('app.float.interval_dialog_title_margin_top'))
+        top: 10
       })
     Row() {
       Slider({
@@ -84,7 +84,7 @@ export default struct IntervalDialog {
           }
         })
       Text((intervalType === 0 ? this.intervalMinuteSelect : this.intervalTimesSelect).toFixed(0))
-        .fontSize(DimensionUtil.getFp($r('app.float.interval_dialog_result_font_size')))
+        .fontSize(16)
     }
     .width(CommonConstants.FULL_LENGTH)
   }

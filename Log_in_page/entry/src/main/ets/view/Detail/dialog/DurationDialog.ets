@@ -36,11 +36,11 @@ export default struct DurationDialog {
             Text(item + CommonConstants.DEFAULT_STRING_SPACE + DetailConstant.DEFAULT_STRING_MINUTE)
               .layoutWeight(CommonConstants.DEFAULT_LAYOUT_WEIGHT)
               .fontColor($r('app.color.grey_divider'))
-              .fontSize(DimensionUtil.getFp($r('app.float.duration_dialog_content_font_size')))
+              .fontSize(14)
             Radio({ value: item.toString(), group: DetailConstant.DEFAULT_STRING_GROUP_NAME })
               .checked(item === this.alarmItem.duration ? true : false)
-              .height(DimensionUtil.getVp($r('app.float.duration_dialog_radio_size')))
-              .width(DimensionUtil.getVp($r('app.float.duration_dialog_radio_size')))
+              .height(20)
+              .width(20)
               .onChange(() => {
                 if (!this.controller) {
                   return;

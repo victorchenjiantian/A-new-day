@@ -30,16 +30,16 @@ export default struct BackContainer {
         Image(this.backImgRes == null ? $r('app.media.ic_public_back') : this.backImgRes).objectFit(ImageFit.Fill)
       }
       .backgroundColor($r('app.color.trans_parent'))
-      .width(DimensionUtil.getVp($r('app.float.title_button_size')))
-      .height(DimensionUtil.getVp($r('app.float.title_button_size')))
+      .width(24)
+      .height(24)
       .onClick(() => {
           this.backFunc ? this.backFunc() : router.back();
       })
 
       Text(this.header)
         .fontSize(DimensionUtil.getFp($r('app.float.detail_title_font_size')))
-        .lineHeight(DimensionUtil.getVp($r('app.float.title_line_height')))
-        .margin({ left: DimensionUtil.getVp($r('app.float.title_margin')) })
+        .lineHeight(28)
+        .margin({ left: 16 })
         .fontColor($r('app.color.grey_divider'))
         .fontWeight(FontWeight.Bold)
       Blank()
@@ -48,10 +48,10 @@ export default struct BackContainer {
       }
     }
     .padding({
-      left: DimensionUtil.getVp($r('app.float.title_horizon_margin')),
-      right: DimensionUtil.getVp($r('app.float.title_horizon_margin'))
+      left: 24,
+      right: 24
     })
-    .height(DimensionUtil.getVp($r('app.float.page_title_height')))
+    .height(56)
     .width(CommonConstants.FULL_LENGTH)
   }
 }

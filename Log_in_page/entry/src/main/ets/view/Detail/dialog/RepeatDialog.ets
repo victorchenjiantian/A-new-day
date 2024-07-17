@@ -51,12 +51,12 @@ export default struct RepeatDialog {
             Text(this.viewModel.transAlarmRepeatDayContent(item))
               .layoutWeight(CommonConstants.DEFAULT_LAYOUT_WEIGHT)
               .fontColor($r('app.color.grey_divider'))
-              .fontSize(DimensionUtil.getFp($r('app.float.repeat_dialog_check_font_size')))
+              .fontSize(14)
 
             Checkbox({ name: item.toString() })
               .select(this.alarmItem.repeatDays.indexOf(item) !== CommonConstants.DEFAULT_NUMBER_NEGATIVE)
-              .width(DimensionUtil.getVp($r('app.float.repeat_dialog_check_box_size')))
-              .height(DimensionUtil.getVp($r('app.float.repeat_dialog_check_box_size')))
+              .width(20)
+              .height(20)
               .onChange((value: boolean) => {
                 if (value) {
                   this.selects.push(item);

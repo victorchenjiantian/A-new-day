@@ -33,10 +33,10 @@ export default struct DatePickArea {
         }, (item: DayDataItem) => JSON.stringify(item))
       }
     }
-    .height(DimensionUtil.getVp($r('app.float.date_picker_height')))
+    .height(200)
     .padding({
-      left: DimensionUtil.getVp($r('app.float.date_picker_padding_horizon')),
-      right: DimensionUtil.getVp($r('app.float.date_picker_padding_horizon'))
+      left: 24,
+      right: 24
     })
   }
 }

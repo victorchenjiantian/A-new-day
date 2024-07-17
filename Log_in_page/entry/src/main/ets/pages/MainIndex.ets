@@ -28,25 +28,26 @@ struct MainIndex {
   private mainModel: MainModel = MainModel.instant;
   @State alarmItems: Array<AlarmItem> = new Array();
   @State isAuth: boolean = false;
-
+/*
   aboutToAppear() {
     let that = this;
     that.mainModel.queryAlarmsTasker((alarms: Array<AlarmItem>) => {
       that.alarmItems = alarms;
     })
   }
+  * */
 
   build() {
     Column() {
-      Text(MainConstant.DEFAULT_STRING_ALARM)
-        .height(DimensionUtil.getVp($r('app.float.page_title_height')))
+      Text("闹钟")
+        .height(56)
         .textAlign(TextAlign.Start)
-        .fontSize(DimensionUtil.getFp($r('app.float.title_font_size')))
-        .width(CommonConstants.FULL_LENGTH)
+        .fontSize(24)
+        .width("100%")
         .fontColor($r('app.color.grey_divider'))
         .fontWeight(FontWeight.Bold)
-        .margin({ bottom: DimensionUtil.getVp($r('app.float.content_margin_body')) })
-        .padding({ left: DimensionUtil.getVp($r('app.float.title_horizon_margin')) })
+        .margin({ bottom: 16 })
+        .padding({ left: 24})
 
       ClockArea()
 
@@ -58,18 +59,18 @@ struct MainIndex {
         Image($r('app.media.ic_add')).objectFit(ImageFit.Fill)
       }
       .backgroundColor($r('app.color.trans_parent'))
-      .width(DimensionUtil.getVp($r('app.float.new_alarm_button_size')))
-      .height(DimensionUtil.getVp($r('app.float.new_alarm_button_size')))
+      .width(48)
+      .height(48)
       .margin({
-        bottom: DimensionUtil.getVp($r('app.float.new_alarm_button_margin_vertical')),
-        top: DimensionUtil.getVp($r('app.float.new_alarm_button_margin_vertical'))
+        bottom: 24,
+        top: 24
       })
       .onClick(() => {
         router.pushUrl({ url: 'pages/DetailIndex' });
       })
     }
-    .width(CommonConstants.FULL_LENGTH)
-    .height(CommonConstants.FULL_LENGTH)
+    .width("100%")
+    .height("100%")
     .backgroundColor($r('app.color.grey_light'))
   }
 }

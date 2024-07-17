@@ -33,13 +33,13 @@ export default struct AlarmListItem {
           Text(this.mainModel.getTaskTimeContent(this.alarmItem.hour, this.alarmItem.minute))
             .CommonTextAttr(DimensionUtil.getFp($r('app.float.alarms_item_time_font_size')),
               FontWeight.Regular,
-              { left: DimensionUtil.getVp($r('app.float.alarms_item_time_margin_left')) })
+              { left: 4 })
         }
 
         Text(this.mainModel.getDescContent(this.alarmItem))
           .CommonTextAttr(DimensionUtil.getFp($r('app.float.alarms_item_dec_font_size')),
             FontWeight.Normal,
-            { top: DimensionUtil.getVp($r('app.float.alarms_item_dec_margin_top')) },
+            { top: 2 },
             $r('app.float.alarms_item_desc_text_opacity'))
       }
       .width(CommonConstants.FULL_LENGTH)
@@ -50,17 +50,17 @@ export default struct AlarmListItem {
         .onChange((isOn: boolean) => {
           this.mainModel.openAlarm(this.alarmItem.id, isOn);
         })
-        .width(DimensionUtil.getVp($r('app.float.alarms_item_toggle_width')))
-        .height(DimensionUtil.getVp($r('app.float.alarms_item_toggle_height')))
+        .width(36)
+        .height(20)
     }
     .padding({
-      left: DimensionUtil.getVp($r('app.float.alarm_list_content_distance')),
-      right: DimensionUtil.getVp($r('app.float.alarm_list_content_distance'))
+      left: 12,
+      right: 12
     })
     .width(CommonConstants.FULL_LENGTH)
-    .height(DimensionUtil.getVp($r('app.float.alarms_item_height')))
+    .height(72)
     .backgroundColor(Color.White)
-    .borderRadius(DimensionUtil.getVp($r('app.float.alarms_item_radius')))
+    .borderRadius(24)
   }
 }
 

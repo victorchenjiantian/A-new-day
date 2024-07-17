@@ -70,33 +70,33 @@ export default struct SettingItem {
           .color($r('app.color.grey_divider'))
           .lineCap(LineCapStyle.Round)
           .margin({
-            left: DimensionUtil.getVp($r('app.float.setting_item_divider_margin_horizon')),
-            right: DimensionUtil.getVp($r('app.float.setting_item_divider_margin_horizon'))
+            left: 12,
+            right: 12
           })
         Row() {
           Text(item.title)
-            .fontSize(DimensionUtil.getFp($r('app.float.setting_item_name_font_size')))
+            .fontSize(16)
             .fontWeight(FontWeight.Regular)
             .fontColor($r('app.color.grey_divider'))
             .layoutWeight(CommonConstants.DEFAULT_LAYOUT_WEIGHT)
           Text(item.content)
-            .fontSize(DimensionUtil.getFp($r('app.float.setting_item_content_font_size')))
+            .fontSize(14)
             .fontWeight(FontWeight.Normal)
             .fontColor($r('app.color.grey_divider'))
             .opacity($r('app.float.setting_item_content_font_opacity'))
           Image($r('app.media.ic_right'))
-            .width(DimensionUtil.getVp($r('app.float.setting_item_image_width')))
-            .height(DimensionUtil.getVp($r('app.float.setting_item_image_height')))
+            .width(6.7)
+            .height(12.8)
             .objectFit(ImageFit.Fill)
             .margin({
-              left: DimensionUtil.getVp($r('app.float.setting_item_image_margin_horizon'))
+              left: 7
             })
         }
-        .height(DimensionUtil.getVp($r('app.float.setting_item_height')))
+        .height(56)
         .alignItems(VerticalAlign.Center)
         .padding({
-          left: DimensionUtil.getVp($r('app.float.setting_item_interval')),
-          right: DimensionUtil.getVp($r('app.float.setting_item_interval'))
+          left: 12,
+          right: 12
         })
         .onClick(() => {
           this.showSettingDialog(item.sType);
@@ -104,11 +104,11 @@ export default struct SettingItem {
       }, (item: AlarmSettingItem, index: number | undefined) => JSON.stringify(item) + index)
     }
     .margin({
-      bottom: DimensionUtil.getVp($r('app.float.setting_item_interval')),
-      left: DimensionUtil.getVp($r('app.float.setting_item_interval')),
-      right: DimensionUtil.getVp($r('app.float.setting_item_interval'))
+      bottom: 12,
+      left: 12,
+      right: 12
     })
-    .borderRadius(DimensionUtil.getVp($r('app.float.setting_item_border_radius')))
+    .borderRadius(24)
     .backgroundColor(Color.White)
   }
 }

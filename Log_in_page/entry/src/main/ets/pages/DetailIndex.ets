@@ -81,8 +81,8 @@ struct DetailIndex {
           Image($r('app.media.ic_confirm')).objectFit(ImageFit.Fill)
         }
         .backgroundColor($r('app.color.trans_parent'))
-        .width(DimensionUtil.getVp($r('app.float.title_button_size')))
-        .height(DimensionUtil.getVp($r('app.float.title_button_size')))
+        .width(24)
+        .height(24)
         .onClick(() => {
           this.viewModel.setAlarmRemind(this.alarmItem);
           router.back();
@@ -102,14 +102,14 @@ struct DetailIndex {
 
       Button($r('app.string.delete'))
         .visibility(this.isNow ? Visibility.None : Visibility.Visible)
-        .width(DimensionUtil.getVp($r('app.float.delete_button_width')))
-        .height(DimensionUtil.getVp($r('app.float.delete_button_height')))
-        .fontSize(DimensionUtil.getFp($r('app.float.delete_button_font_size')))
+        .width(120)
+        .height(40)
+        .fontSize(16)
         .fontColor($r('app.color.red_light'))
         .backgroundColor($r('app.color.grey_with_opacity'))
-        .borderRadius(DimensionUtil.getVp($r('app.float.delete_button_radius')))
+        .borderRadius(20)
         .margin({
-          bottom: DimensionUtil.getVp($r('app.float.delete_button_margin_bottom'))
+          bottom: 24
         })
         .onClick(() => {
           this.viewModel.removeAlarmRemind(this.alarmItem.id);

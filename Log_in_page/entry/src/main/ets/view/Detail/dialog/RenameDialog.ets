@@ -39,7 +39,7 @@ export default struct RenameDialog {
       }) {
         TextArea({ text: this.alarmItem.name })
           .width(CommonConstants.FULL_LENGTH)
-          .margin({ bottom: DimensionUtil.getVp($r('app.float.rename_dialog_text_margin_bottom')) })
+          .margin({ bottom: 20 })
           .onChange((value: string) => {
             this.name = value;
           })
