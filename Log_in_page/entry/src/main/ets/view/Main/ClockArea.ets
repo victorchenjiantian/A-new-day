@@ -14,7 +14,7 @@
  */
 
 import { CommonConstants } from '../../common/constants/CommonConstants2';
-import MainModel from '../../viewmodel/MainViewModel';
+import MainModel from '../../viewmodel/MainViewModel2';
 import { MainConstant } from '../../common/constants/MainConstant';
 import DimensionUtil from '../../common/utils/DimensionUtil';
 

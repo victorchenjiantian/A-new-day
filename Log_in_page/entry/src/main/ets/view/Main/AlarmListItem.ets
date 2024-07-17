@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import MainModel from './../../viewmodel/MainViewModel';
+import MainModel from './../../viewmodel/MainViewModel2';
 import { CommonConstants } from '../../common/constants/CommonConstants2';
 import AlarmItem from '../../viewmodel/AlarmItem';
 import DimensionUtil from '../../common/utils/DimensionUtil';

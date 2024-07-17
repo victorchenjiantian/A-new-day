@@ -15,7 +15,8 @@
 
 import { MainConstant } from '../common/constants/MainConstant';
 import ReminderService from '../model/ReminderService';
-import {CommonConstants, WeekDays } from '../common/constants/CommonConstants';
+import CommonConstants from '../common/constants/CommonConstants';
+import { WeekDays } from '../common/constants/CommonConstants2';
 import AlarmItem from './AlarmItem';
 import DataTypeUtils from '../common/utils/DataTypeUtils';
 import { GlobalContext } from '../common/utils/GlobalContext';

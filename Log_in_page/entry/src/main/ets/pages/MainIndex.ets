@@ -17,7 +17,7 @@ import router from '@ohos.router';
 import { CommonConstants } from '../common/constants/CommonConstants2';
 import AlarmItem from '../viewmodel/AlarmItem';
 import { MainConstant } from '../common/constants/MainConstant';
-import MainModel from '../viewmodel/MainViewModel';
+import MainModel from '../viewmodel/MainViewModel2';
 import ClockArea from './../view/Main/ClockArea';
 import AlarmList from './../view/Main/AlarmList';
 import DimensionUtil from '../common/utils/DimensionUtil';
@@ -25,7 +25,7 @@ import DimensionUtil from '../common/utils/DimensionUtil';
 @Entry
 @Component
 struct MainIndex {
-  private mainModel: typeof MainModel = MainModel;
+  private mainModel: MainModel = MainModel.instant;
   @State alarmItems: Array<AlarmItem> = new Array();
   @State isAuth: boolean = false;
 
