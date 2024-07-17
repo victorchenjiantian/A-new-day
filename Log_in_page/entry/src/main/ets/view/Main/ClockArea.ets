@@ -18,6 +18,7 @@ import MainModel from '../../viewmodel/MainViewModel2';
 import { MainConstant } from '../../common/constants/MainConstant';
 import DimensionUtil from '../../common/utils/DimensionUtil';
 
+@Entry
 @Component
 export default struct ClockArea {
   private mainModel: MainModel = MainModel.instant;
@@ -33,6 +34,7 @@ export default struct ClockArea {
   }
 
   build() {
+
     Canvas(this.renderContext)
       .width(this.canvasSize)
       .aspectRatio(CommonConstants.DEFAULT_LAYOUT_WEIGHT)
