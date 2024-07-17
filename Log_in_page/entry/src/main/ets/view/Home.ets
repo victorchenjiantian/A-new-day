@@ -30,11 +30,51 @@ export default struct Home {
 
   start(t) {
     t = "a"
-    if (t == "a"){
+    if (t == "a") {
       this.urls = 'pages/MainIndex'
     }
 
 
+    /*this.isShowProgress = true;
+    if (this.timeOutId === -1) {*/
+    prompt.showToast({
+      message: "loading......"
+    })
+    this.timeOutId = setTimeout(() => {
+      /*this.isShowProgress = false;
+      this.timeOutId = -1;*/
+      console.info(`pages/RegisterPage`)
+      router.pushUrl({ url: 'pages/MainIndex' }).then(() => {
+        console.info('Succeeded in jumping to the second page.')
+
+      }).catch((err) => {
+        console.error(`Failed to jump to the second page. Code is ${err.code}, message is ${err.message}`)
+      })
+    }, CommonConstants.LOGIN_DELAY_TIME);
+
+    //}
+  }
+  start1() {
+  /*this.isShowProgress = true;
+  if (this.timeOutId === -1) {*/
+  prompt.showToast({
+    message: $r('app.string.wait_tips')
+  })
+  this.timeOutId = setTimeout(() => {
+    /*this.isShowProgress = false;
+    this.timeOutId = -1;*/
+    console.info(`pages/RegisterPage`)
+    router.pushUrl({ url: 'pages/MainIndex' }).then(() => {
+      console.info('Succeeded in jumping to the second page.')
+
+    }).catch((err) => {
+      console.error(`Failed to jump to the second page. Code is ${err.code}, message is ${err.message}`)
+    })
+  }, CommonConstants.LOGIN_DELAY_TIME);
+
+  //}
+}
+  start2() {
     /*this.isShowProgress = true;
     if (this.timeOutId === -1) {*/
     prompt.showToast({
@@ -44,15 +84,13 @@ export default struct Home {
       /*this.isShowProgress = false;
       this.timeOutId = -1;*/
       console.info(`pages/RegisterPage`)
-      router.pushUrl({ url: this.urls }).then(() => {
+      router.pushUrl({ url: 'pages/schedule' }).then(() => {
         console.info('Succeeded in jumping to the second page.')
 
       }).catch((err) => {
         console.error(`Failed to jump to the second page. Code is ${err.code}, message is ${err.message}`)
       })
     }, CommonConstants.LOGIN_DELAY_TIME);
-
-    //}
   }
 
   build() {
@@ -142,6 +180,17 @@ export default struct Home {
         .columnsGap($r('app.float.home_grid_columnsGap'))
         .rowsGap($r('app.float.home_grid_rowGap'))
         .margin({ bottom: $r('app.float.setting_button_bottom')})
+        Button("进入")
+          .position({ x:90 , y: 390 })
+          .onClick(()=>{
+            this.start1();
+          })
+        Button("进入")
+          .position({ x:260 , y: 390 })
+          .onClick(()=>{
+            this.start2();
+          })
+
       }
     }
     .scrollBarWidth(0)
