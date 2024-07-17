@@ -74,7 +74,7 @@ struct DetailIndex {
   build() {
     Column() {
       BackContainer({
-        header: this.isNow ? $r('app.string.new_alarm') : $r('app.string.update_alarm'),
+        header: this.isNow ? "新建计划" : "修改计划",
         backImgRes: $r('app.media.ic_cancel'),
       }) {
         Button() {
@@ -88,16 +88,23 @@ struct DetailIndex {
           router.back();
         })
       }
+      Text("a")
 
-      DatePickArea()
+      TextInput({ placeholder: "Plane"})
+        .maxLength(CommonConstants.INPUT_PASSWORD_LENGTH)
 
+      Text("a")
+      TextInput({ placeholder: "Time"})
+        .maxLength(CommonConstants.INPUT_PASSWORD_LENGTH)
       SettingItem({
         settingInfo: $repeatSettingArr
       })
+      Text("a")
       SettingItem({
         settingInfo: $alarmSettingInfoArr
       })
 
+      Text("a")
       Blank()
 
       Button($r('app.string.delete'))
@@ -113,7 +120,7 @@ struct DetailIndex {
         })
         .onClick(() => {
           this.viewModel.removeAlarmRemind(this.alarmItem.id);
-          router.back();
+          router.pushUrl({ url: 'pages/schedule' });
         })
     }
     .backgroundColor($r('app.color.grey_light'))
