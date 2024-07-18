@@ -193,7 +193,10 @@ struct LoginPage {
         }.backgroundColor(Color.Transparent)
       }
     }
-    .backgroundColor($r('app.color.background'))
+    .backgroundImage($r("app.media.img"))
+    .backgroundImageSize({
+      height:'100%'
+    })
     .height(CommonConstants.FULL_PARENT)
     .width(CommonConstants.FULL_PARENT)
     .padding({

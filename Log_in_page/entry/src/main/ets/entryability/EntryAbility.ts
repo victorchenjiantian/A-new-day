@@ -3,8 +3,12 @@ import hilog from '@ohos.hilog';
 import UIAbility from '@ohos.app.ability.UIAbility';
 import Want from '@ohos.app.ability.Want';
 import window from '@ohos.window';
+import dataPreferences from '@ohos.data.preferences';
+
 
 export default class EntryAbility extends UIAbility {
+
+
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
   }
@@ -16,6 +20,19 @@ export default class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage): void {
     // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
+    try {
+      dataPreferences.getPreferences(this.context, 'mystore', (err, preferences) => {
+        if (err) {
+          console.error(`[+]Failed to get preferences. Code:${err.code},message:${err.message}`);
+          return;
+        }
+        console.info('[+]Succeeded in getting preferences.');
+        // 进行相关数据操作
+      })
+    } catch (err) {
+      console.error(`[+]Failed to get preferences. Code:${err.code},message:${err.message}`);
+    }
+
 
     windowStage.loadContent('pages/LoginPage', (err, data) => {
       if (err.code) {

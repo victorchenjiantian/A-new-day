@@ -21,6 +21,7 @@ import MainModel from '../viewmodel/MainViewModel2';
 import ClockArea from './../view/Main/ClockArea';
 import AlarmList from './../view/Main/AlarmList';
 import DimensionUtil from '../common/utils/DimensionUtil';
+import { http_common } from './dataManager'
 
 @Entry
 @Component
