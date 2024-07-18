@@ -33,6 +33,7 @@ struct DetailIndex {
   @State alarmSettingInfoArr: Array<AlarmSettingItem> = [];
   private isNow: boolean = true;
   private viewModel: DetailModel = DetailModel.instant;
+  private selectedDate: Date = new Date('2021-08-08')
 
   aboutToAppear() {
     let params = router.getParams() as Record<string, Object|undefined>;
@@ -89,6 +90,16 @@ struct DetailIndex {
         })
       }
       //Text("a")
+      DatePicker({
+        start: new Date('1970-1-1'),
+        end: new Date('2100-1-1'),
+        selected: this.selectedDate
+      })
+        .onChange((value: DatePickerResult) => {
+          this.selectedDate.setFullYear(value.year, value.month, value.day)
+          console.info('select current date is: ' + JSON.stringify(value))
+        })
+      Text(this.selectedDate.toString())
 
 
       TextInput({ placeholder: "开始时间"})

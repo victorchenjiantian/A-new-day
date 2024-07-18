@@ -10,7 +10,6 @@
     "pages/MainIndex",
     "pages/DetailIndex",
     "pages/schedule",
-    "pages/add_schedule",
-    "pages/Markdown"
+    "pages/add_schedule"
   ]
 }
