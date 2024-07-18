@@ -11,6 +11,7 @@
     "pages/DetailIndex",
     "pages/schedule",
     "pages/add_schedule",
-    "pages/history"
+    "pages/history",
+    "pages/zhuce"
   ]
 }

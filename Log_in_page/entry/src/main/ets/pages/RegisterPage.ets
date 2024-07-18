@@ -126,16 +126,21 @@ struct LoginPage {
         .margin({
           top: '15vp'
         })
-      Blank()
-
-      TextInput({ placeholder: '请输入用户名' })
+      //Blank()
+      TextInput({ placeholder: '请输入手机号' })
+        .onChange((value: string) => {
+          this.account = value;
+        })
         .margin({ bottom: '10vp' })
 
-      TextInput({ placeholder: '请输入密码' })
-        .type(InputType.Password)
+      TextInput({ placeholder: '请输入验证码' })
+        .onChange((value: string) => {
+          this.password = value;
+        })
+        .margin({ bottom: '10vp' })
 
       Row() {
-        Text("短信验证码").fontColor("#007DFF")
+        Text("获取短信验证码").fontColor("#007DFF")
           .fontSize(12)
           .margin({left:5})
         //Text("忘记密码").fontColor("#007DFF").fontSize(12)
@@ -143,18 +148,7 @@ struct LoginPage {
       .margin({ top: 10})
       .width("100%").justifyContent(FlexAlign.SpaceBetween)
 
-      Button("登录", { type: ButtonType.Capsule })
-        .width(CommonConstants.BUTTON_WIDTH)
-        .height($r('app.float.login_button_height'))
-        .fontSize($r('app.float.normal_text_size'))
-        .fontWeight(FontWeight.Medium)
-        .backgroundColor($r('app.color.login_button_color'))
-        .margin({ top: $r('app.float.login_button_margin_top'), bottom: $r('app.float.login_button_margin_bottom') })
-        .onClick(() => {
-          this.login();
-        })
-
-      Button("返回", { type: ButtonType.Capsule })
+      Button("下一步", { type: ButtonType.Capsule })
         .width(CommonConstants.BUTTON_WIDTH)
         .height($r('app.float.login_button_height'))
         .fontSize($r('app.float.normal_text_size'))

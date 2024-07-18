@@ -1,0 +1,75 @@
+/*
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Licensed under the Apache License,Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import MainModel from './../../viewmodel/MainViewModel2';
+import { CommonConstants } from '../../common/constants/CommonConstants2';
+import AlarmItem from '../../viewmodel/AlarmItem';
+import DimensionUtil from '../../common/utils/DimensionUtil';
+
+@Component
+export default struct AlarmListItem {
+  private mainModel: MainModel = MainModel.instant;
+  private alarmItem: AlarmItem = new AlarmItem();
+
+  build() {
+    Row() {
+      Column() {
+        Row() {
+          Text(this.mainModel.getNoonContent(this.alarmItem.hour))
+            .CommonTextAttr(16,
+              FontWeight.Regular)
+          Text(this.mainModel.getTaskTimeContent(this.alarmItem.hour, this.alarmItem.minute))
+            .CommonTextAttr(24,
+              FontWeight.Regular,
+              { left: 4 })
+        }
+
+        Text(this.mainModel.getDescContent(this.alarmItem))
+          .CommonTextAttr(14,
+            FontWeight.Normal,
+            { top: 2 },
+            $r('app.float.alarms_item_desc_text_opacity'))
+      }
+      .width(CommonConstants.FULL_LENGTH)
+      .alignItems(HorizontalAlign.Start)
+      .layoutWeight(CommonConstants.DEFAULT_LAYOUT_WEIGHT)
+
+      Toggle({ type: ToggleType.Switch, isOn: this.alarmItem.isOpen })
+        .onChange((isOn: boolean) => {
+          this.mainModel.openAlarm(this.alarmItem.id, isOn);
+        })
+        .width(36)
+        .height(20)
+    }
+    .padding({
+      left: 12,
+      right: 12
+    })
+    .width(CommonConstants.FULL_LENGTH)
+    .height(72)
+    .backgroundColor(Color.White)
+    .borderRadius(24)
+  }
+}
+
+@Extend(Text)
+function CommonTextAttr(fontSize: number, fontWeight: number, margin?: Margin,
+                        opacity?: Resource) {
+  .fontColor($r('app.color.grey_divider'))
+  .fontSize(fontSize)
+  .fontWeight(fontWeight)
+  .margin(margin != undefined ? margin : 0)
+  .opacity(opacity != undefined ? opacity : 1)
+}

@@ -1,0 +1,199 @@
+/*
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import CommonConstants from '../common/constants/CommonConstants';
+import mainViewModel from '../viewmodel/MainViewModel';
+import ItemData from '../viewmodel/ItemData';
+import prompt from '@ohos.promptAction';
+import router from '@ohos.router';
+
+/**
+ * Home tab content
+ */
+@Component
+export default struct Home {
+  private swiperController: SwiperController = new SwiperController();
+  private timeOutId: number = -1;
+  private urls: string = "0";
+
+  start(t) {
+    t = "a"
+    if (t == "a") {
+      this.urls = 'pages/MainIndex'
+    }
+
+
+    /*this.isShowProgress = true;
+    if (this.timeOutId === -1) {*/
+    prompt.showToast({
+      message: "loading......"
+    })
+    this.timeOutId = setTimeout(() => {
+      /*this.isShowProgress = false;
+      this.timeOutId = -1;*/
+      console.info(`pages/RegisterPage`)
+      router.pushUrl({ url: 'pages/MainIndex' }).then(() => {
+        console.info('Succeeded in jumping to the second page.')
+
+      }).catch((err) => {
+        console.error(`Failed to jump to the second page. Code is ${err.code}, message is ${err.message}`)
+      })
+    }, CommonConstants.LOGIN_DELAY_TIME);
+
+    //}
+  }
+  start1() {
+  /*this.isShowProgress = true;
+  if (this.timeOutId === -1) {*/
+  prompt.showToast({
+    message: $r('app.string.wait_tips')
+  })
+  this.timeOutId = setTimeout(() => {
+    /*this.isShowProgress = false;
+    this.timeOutId = -1;*/
+    console.info(`pages/RegisterPage`)
+    router.pushUrl({ url: 'pages/MainIndex' }).then(() => {
+      console.info('Succeeded in jumping to the second page.')
+
+    }).catch((err) => {
+      console.error(`Failed to jump to the second page. Code is ${err.code}, message is ${err.message}`)
+    })
+  }, CommonConstants.LOGIN_DELAY_TIME);
+
+  //}
+}
+  start2() {
+    /*this.isShowProgress = true;
+    if (this.timeOutId === -1) {*/
+    prompt.showToast({
+      message: $r('app.string.wait_tips')
+    })
+    this.timeOutId = setTimeout(() => {
+      /*this.isShowProgress = false;
+      this.timeOutId = -1;*/
+      console.info(`pages/RegisterPage`)
+      router.pushUrl({ url: 'pages/schedule' }).then(() => {
+        console.info('Succeeded in jumping to the second page.')
+
+      }).catch((err) => {
+        console.error(`Failed to jump to the second page. Code is ${err.code}, message is ${err.message}`)
+      })
+    }, CommonConstants.LOGIN_DELAY_TIME);
+  }
+
+  build() {
+    Scroll() {
+      Column({ space: CommonConstants.COMMON_SPACE }) {
+        Column(){
+          Text($r('app.string.mainPage_tabTitles_home'))
+            .fontWeight(FontWeight.Medium)
+            .fontSize($r('app.float.page_title_text_size'))
+            .margin({ top: $r('app.float.mainPage_tabTitles_margin') })
+            .padding({ left: $r('app.float.mainPage_tabTitles_padding') })
+        }
+        .width(CommonConstants.FULL_PARENT)
+        .alignItems(HorizontalAlign.Start)
+
+        Swiper(this.swiperController) {
+          ForEach(mainViewModel.getSwiperImages(), (img: Resource) => {
+            Image(img).borderRadius($r('app.float.home_swiper_borderRadius'))
+          }, (img: Resource) => JSON.stringify(img.id))
+        }
+        .margin({ top: $r('app.float.home_swiper_margin') })
+        .autoPlay(true)
+
+        /*Grid() {
+          *//*ForEach(mainViewModel.getFirstGridData(), (item: ItemData) => {
+            GridItem() {
+              Column() {
+                Image(item.img)
+                  .width($r('app.float.home_homeCell_size'))
+                  .height($r('app.float.home_homeCell_size'))
+                Text(item.title)
+                  .fontSize($r('app.float.little_text_size'))
+                  .margin({ top: $r('app.float.home_homeCell_margin') })
+              }
+            }
+          }, (item: ItemData) => JSON.stringify(item))*//*
+        }*/
+        /*.columnsTemplate('1fr 1fr 1fr 1fr')
+        .rowsTemplate('1fr 1fr')
+        .columnsGap($r('app.float.home_grid_columnsGap'))
+        .rowsGap($r('app.float.home_grid_rowGap'))
+        .padding({ top: $r('app.float.home_grid_padding'), bottom: $r('app.float.home_grid_padding') })
+        .height($r('app.float.home_grid_height'))
+        .backgroundColor(Color.White)
+        .borderRadius($r('app.float.home_grid_borderRadius'))*/
+
+        Text($r('app.string.home_list'))
+          .fontSize($r('app.float.normal_text_size'))
+          .fontWeight(FontWeight.Medium)
+          .width(CommonConstants.FULL_PARENT)
+          .margin({ top: $r('app.float.home_text_margin') })
+
+        Grid() {
+          ForEach(mainViewModel.getSecondGridData(), (secondItem: ItemData) => {
+            GridItem() {
+              Column() {
+
+                  Text(secondItem.title)
+                    .fontSize($r('app.float.normal_text_size'))
+                    .fontWeight(FontWeight.Medium)
+
+                .backgroundColor(Color.White)
+                  Text(secondItem.others)
+                    .margin({ top: $r('app.float.home_list_margin') })
+                    .fontSize($r('app.float.little_text_size'))
+                    .fontColor($r('app.color.home_grid_fontColor'))
+
+              }
+              .alignItems(HorizontalAlign.Start)
+            }
+            .onClick(()=>{
+              this.start(secondItem.title);
+            })
+            .padding({ top: $r('app.float.home_list_padding'), left: $r('app.float.home_list_padding') })
+            .borderRadius($r('app.float.home_backgroundImage_borderRadius'))
+            .align(Alignment.TopStart)
+            .backgroundImage(secondItem.img)
+            .backgroundImageSize(ImageSize.Cover)
+            .width(CommonConstants.FULL_PARENT)
+            .height(CommonConstants.FULL_PARENT)
+          }, (secondItem: ItemData) => JSON.stringify(secondItem))
+        }
+        .width(CommonConstants.FULL_PARENT)
+        .height($r('app.float.home_secondGrid_height'))
+        .columnsTemplate('1fr 1fr')
+        .rowsTemplate('1fr 1fr')
+        .columnsGap($r('app.float.home_grid_columnsGap'))
+        .rowsGap($r('app.float.home_grid_rowGap'))
+        .margin({ bottom: $r('app.float.setting_button_bottom')})
+        Button("进入")
+          .position({ x:90 , y: 390 })
+          .onClick(()=>{
+            this.start1();
+          })
+        Button("进入")
+          .position({ x:260 , y: 390 })
+          .onClick(()=>{
+            this.start2();
+          })
+
+      }
+    }
+    .scrollBarWidth(0)
+    .height(CommonConstants.FULL_PARENT)
+  }
+}
