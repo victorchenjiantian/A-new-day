@@ -16,6 +16,8 @@
 import prompt from '@ohos.promptAction';
 import router from '@ohos.router';
 import CommonConstants from '../common/constants/CommonConstants';
+import { http_common } from './dataManager'
+
 
 @Extend(TextInput) function inputStyle () {
   .placeholderColor($r('app.color.placeholder_color'))
@@ -81,12 +83,16 @@ struct LoginPage {
 
           //this.timeOutId = -1;
           console.info(`pages/MainPage`)
-          router.pushUrl({ url: 'pages/MainPage' }).then(() => {
-            console.info('Succeeded in jumping to the second page.')
+          // @ts-ignore
+          if(! http_common('/login',{"username":this.account,"passwd":this.password})){
+            router.pushUrl({ url: 'pages/MainPage' }).then(() => {
+              console.info('Succeeded in jumping to the second page.')
 
-          }).catch((err) => {
-            console.error(`Failed to jump to the second page. Code is ${err.code}, message is ${err.message}`)
-          })
+            }).catch((err) => {
+              console.error(`Failed to jump to the second page. Code is ${err.code}, message is ${err.message}`)
+            })
+          }
+
         }, CommonConstants.LOGIN_DELAY_TIME);
       }
     }
