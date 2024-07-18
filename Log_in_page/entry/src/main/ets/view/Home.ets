@@ -93,6 +93,25 @@ export default struct Home {
     }, CommonConstants.LOGIN_DELAY_TIME);
   }
 
+  start3() {
+    /*this.isShowProgress = true;
+    if (this.timeOutId === -1) {*/
+    prompt.showToast({
+      message: $r('app.string.wait_tips')
+    })
+    this.timeOutId = setTimeout(() => {
+      /*this.isShowProgress = false;
+      this.timeOutId = -1;*/
+      console.info(`pages/history`)
+      router.pushUrl({ url: 'pages/history' }).then(() => {
+        console.info('Succeeded in jumping to the second page.')
+
+      }).catch((err) => {
+        console.error(`Failed to jump to the second page. Code is ${err.code}, message is ${err.message}`)
+      })
+    }, CommonConstants.LOGIN_DELAY_TIME);
+  }
+
   build() {
     Scroll() {
       Column({ space: CommonConstants.COMMON_SPACE }) {
@@ -189,6 +208,11 @@ export default struct Home {
           .position({ x:260 , y: 390 })
           .onClick(()=>{
             this.start2();
+          })
+        Button("进入")
+          .position({ x:90 , y: 525 })
+          .onClick(()=>{
+            this.start3();
           })
 
       }
