@@ -133,12 +133,15 @@
         .onChange((value: string) => {
           this.account = value;
         })
+        .maxLength(CommonConstants.INPUT_ACCOUNT_LENGTH)
+        .inputStyle()
         .margin({ bottom: '10vp' })
 
       TextInput({ placeholder: '请输入密码' })
         .onChange((value: string) => {
           this.password = value;
-        })
+        }).maxLength(CommonConstants.INPUT_ACCOUNT_LENGTH)
+        .inputStyle()
         .type(InputType.Password)
 
 
