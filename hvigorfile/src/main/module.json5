@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "chatui",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}

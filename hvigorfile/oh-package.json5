@@ -1,0 +1,20 @@
+{
+  "license": "MIT",
+  "devDependencies": {},
+  "keywords": [
+    "chat",
+    "bot",
+    "UI",
+    "chatui"
+  ],
+  "author": "ChangweiZhang",
+  "name": "@changwei/chatui",
+  "description": "HarmonyOS原生聊天UI库, ArkTS编写，基础组件实现,UI可定制,支持Markdown格式消息。支持大量消息懒加载绑定,性能卓越。",
+  "main": "index.ets",
+  "repository": "https://gitee.com/changweizhang/ChatUI",
+  "version": "0.0.5",
+  "homepage": "https://space.bilibili.com/395257724/channel/collectiondetail?sid\u003d2275182\u0026ctype\u003d0",
+  "dependencies": {
+    "@luvi/lv-markdown-in": "^1.1.1"
+  }
+}
