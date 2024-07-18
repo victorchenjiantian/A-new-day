@@ -46,7 +46,7 @@ import { http_common } from './dataManager'
  */
 @Entry
 @Component
-struct LoginPage { 
+struct LoginPage {
   @State account: string = '';
   @State password: string = '';
   @State isShowProgress: boolean = false;
