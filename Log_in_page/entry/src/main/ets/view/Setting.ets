@@ -77,19 +77,19 @@ export default struct Setting {
             .fontWeight(FontWeight.Medium)
             .fontSize($r('app.float.page_title_text_size'))
             .margin({ top: $r('app.float.mainPage_tabTitles_margin') })
-            .padding({ left: $r('app.float.mainPage_tabTitles_padding') })
+            .padding({ left: $r('app.float.mainPage_tabTitles_padding') })//////////////////////////
         }
         .width(CommonConstants.FULL_PARENT)
         .alignItems(HorizontalAlign.Start)
 
         Row() {
-          Image($r('app.media.account'))
+          Image($r('app.media.SJTU'))
             .width($r('app.float.setting_account_size'))
             .height($r('app.float.setting_account_size'))
           Column() {
-            Text($r('app.string.setting_account_name'))
+            Text("SJTU")
               .fontSize($r('app.float.setting_account_fontSize'))
-            Text($r('app.string.setting_account_email'))
+            Text("SJTU@love_you.com")
               .fontSize($r('app.float.little_text_size'))
               .margin({ top: $r('app.float.setting_name_margin') })
           }

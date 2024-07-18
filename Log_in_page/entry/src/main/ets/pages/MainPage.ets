@@ -50,6 +50,7 @@ struct MainPage {
       barPosition: BarPosition.End,
       controller: this.tabsController
     }) {
+
       TabContent() {
         Home()
       }
