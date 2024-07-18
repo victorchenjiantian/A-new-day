@@ -11,7 +11,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ *//*
+
 
 import router from '@ohos.router';
 import { CommonConstants } from '../common/constants/CommonConstants2';
@@ -28,7 +29,7 @@ import { http_common } from './dataManager'
 struct MainIndex {
   private mainModel: MainModel = MainModel.instant;
   @State alarmItems: Array<AlarmItem> = new Array();
-  @State history_data:Object = JSON.parse(http_common("1",{asd})) ;
+  @State history_data:Object[] = [{},{},{}];
 
    aboutToAppear() {
       let that = this;
@@ -36,7 +37,7 @@ struct MainIndex {
         that.alarmItems = alarms;
       })
     }
-    */
+
 
   build() {
     Column() {
@@ -51,3 +52,14 @@ struct MainIndex {
     .backgroundColor($r('app.color.grey_light'))
   }
 }
+
+@Component
+struct alist(){
+  @State data:number = 0
+
+  build(){
+
+  }
+}
+
+*/
