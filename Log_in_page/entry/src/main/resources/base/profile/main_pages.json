@@ -12,6 +12,7 @@
     "pages/schedule",
     "pages/add_schedule",
     "pages/history",
-    "pages/zhuce"
+    "pages/zhuce",
+    "pages/video"
   ]
 }

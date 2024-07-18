@@ -148,7 +148,7 @@ struct LoginPage {
 
       TextInput({ placeholder: '  请输入用户名' })
         .margin({ bottom: '10vp' })
-        .type(InputType.Password)
+        //.type(InputType.Password)
         .maxLength(CommonConstants.INPUT_ACCOUNT_LENGTH)
         .inputStyle()
         .onChange((value: string) => {

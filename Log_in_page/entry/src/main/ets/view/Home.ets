@@ -111,6 +111,24 @@ export default struct Home {
       })
     }, CommonConstants.LOGIN_DELAY_TIME);
   }
+  start4() {
+    /*this.isShowProgress = true;
+    if (this.timeOutId === -1) {*/
+    prompt.showToast({
+      message: $r('app.string.wait_tips')
+    })
+    this.timeOutId = setTimeout(() => {
+      /*this.isShowProgress = false;
+      this.timeOutId = -1;*/
+      console.info(`pages/video`)
+      router.pushUrl({ url: 'pages/video' }).then(() => {
+        console.info('Succeeded in jumping to the second page.')
+
+      }).catch((err) => {
+        console.error(`Failed to jump to the second page. Code is ${err.code}, message is ${err.message}`)
+      })
+    }, CommonConstants.LOGIN_DELAY_TIME);
+  }
 
   build() {
     Scroll() {
@@ -213,6 +231,11 @@ export default struct Home {
           .position({ x:90 , y: 525 })
           .onClick(()=>{
             this.start3();
+          })
+        Button("进入")
+          .position({ x:260 , y: 525 })
+          .onClick(()=>{
+            this.start4();
           })
 
       }
