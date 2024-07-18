@@ -7,6 +7,14 @@
     "deviceTypes": [
       "default"
     ],
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.INTERNET",
+        "usedScene": {
+          "when": "always"
+        }
+      }
+    ],
     "deliveryWithInstall": true,
     "installationFree": false,
     "pages": "$profile:main_pages",

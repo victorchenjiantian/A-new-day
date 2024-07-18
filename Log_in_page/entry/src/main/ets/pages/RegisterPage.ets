@@ -94,7 +94,7 @@ struct LoginPage {
           //this.isShowProgress = false;
           //this.timeOutId = -1;
           console.info(`pages/LoginPage`)
-          router.pushUrl({ url: 'pages/LoginPage' }).then(() => {
+          router.pushUrl({ url: 'pages/zhuce' }).then(() => {
             console.info('Succeeded in jumping to the second page.')
 
           }).catch((err) => {
