@@ -1,0 +1,115 @@
+import cv2
+import numpy as np
+
+#img_all = cv2.imread("yellowlight.jpg")
+img_all = cv2.imread("redlight.jpg")
+#img_all = cv2.imread("yellowlight.jpg")
+
+im_part = img_all[0:230,600:1280]          #截取红绿灯观察区
+
+blur_img = cv2.medianBlur(im_part,7)
+cv2.imshow("origin",im_part)                  
+cv2.waitKey(0)          
+
+
+#以下需补齐 
+#yellow template
+yellow_lower_orange = 
+yellow_upper_orange = 
+
+#green template 
+green_lower_orange =   
+green_upper_orange = 
+
+#red template 
+red_lower_orange = 
+red_upper_orange = 
+
+
+yellow_mask = cv2.inRange(im_part, yellow_lower_orange, yellow_upper_orange)
+cv2.imshow("yellow_mask",yellow_mask)  
+
+green_mask = cv2.inRange(im_part, green_lower_orange, green_upper_orange)
+cv2.imshow("green_mask",green_mask)  
+
+red_mask = cv2.inRange(im_part, red_lower_orange, red_upper_orange)
+cv2.imshow("red_mask",red_mask)  
+
+cv2.waitKey(0)     
+
+res_yellow = cv2.bitwise_and(im_part,im_part, mask= yellow_mask)
+
+res_green = cv2.bitwise_and(im_part,im_part, mask= green_mask)
+
+res_red = cv2.bitwise_and(im_part,im_part, mask= red_mask)
+
+yellow_contours, hierarchy = cv2.findContours(
+    yellow_mask,
+    cv2.RETR_EXTERNAL,
+    cv2.CHAIN_APPROX_SIMPLE)
+
+green_contours, hierarchy = cv2.findContours(
+    green_mask,
+    cv2.RETR_EXTERNAL,
+    cv2.CHAIN_APPROX_SIMPLE)
+
+red_contours, hierarchy = cv2.findContours(
+    red_mask,
+    cv2.RETR_EXTERNAL,
+    cv2.CHAIN_APPROX_SIMPLE)
+
+yellow_area = []
+green_area = []
+red_area = []
+
+for c in range(len(yellow_contours)):
+    yellow_area.append(cv2.contourArea(yellow_contours[c]))
+if yellow_area:
+    yellow_max_idx = np.argmax(np.array(yellow_area))
+        
+for c in range(len(green_contours)):
+    green_area.append(cv2.contourArea(green_contours[c]))
+if green_area:
+    green_max_idx = np.argmax(np.array(green_area))
+      
+for c in range(len(red_contours)):
+    red_area.append(cv2.contourArea(red_contours[c]))
+if red_area:
+    red_max_idx = np.argmax(np.array(red_area))
+     
+if len(green_area) & len(yellow_area) & len(red_area):
+    if green_area[green_max_idx] > yellow_area[yellow_max_idx]:
+        if green_area[green_max_idx] > red_area[red_max_idx]:
+            x,y,w,h=cv2.boundingRect(green_contours[green_max_idx])
+            img=cv2.rectangle(im_part,(x,y),(x+w,y+h),(0,255,0),2)
+            print("green light on!")
+        else:
+            x,y,w,h=cv2.boundingRect(red_contours[red_max_idx])
+            img=cv2.rectangle(im_part,(x,y),(x+w,y+h),(0,0,255),2)
+            print("red light on!")
+    elif green_area[green_max_idx] < yellow_area[yellow_max_idx]:
+        if yellow_area[green_max_idx] > red_area[yellow_max_idx]:
+            x,y,w,h=cv2.boundingRect(yellow_contours[yellow_max_idx])
+            img=cv2.rectangle(im_part,(x,y),(x+w,y+h),(0,255,0),2)
+            print("yellow light on!")
+        else:
+            x,y,w,h=cv2.boundingRect(red_contours[red_max_idx])
+            img=cv2.rectangle(im_part,(x,y),(x+w,y+h),(0,0,255),2)
+            print("red light on!")
+
+elif green_area:
+    #需补齐
+    
+    
+elif yellow_area:
+    #需补齐
+elif red_area:
+    #需补齐
+        
+else:
+    print("no light on!")
+
+img_all[0:230,600:1280] = im_part
+cv2.imshow("contour",img_all) 
+cv2.waitKey(0)                            
+cv2.destroyAllWindows()
