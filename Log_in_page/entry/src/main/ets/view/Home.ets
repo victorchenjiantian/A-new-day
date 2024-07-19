@@ -284,12 +284,12 @@ export default struct Home {
         Button("进入")
           .position({ x:90 , y: 700 })
           .onClick(()=>{
-            this.start3();
+            //this.start3();
           })
         Button("进入")
           .position({ x:260 , y: 700 })
           .onClick(()=>{
-            this.start4();
+            //this.start4();
           })
 
       }
