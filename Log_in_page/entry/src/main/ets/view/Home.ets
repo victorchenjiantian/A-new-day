@@ -190,11 +190,11 @@ export default struct Home {
                     .fontWeight(FontWeight.Medium)
 
                 .backgroundColor(Color.White)
-                  Text(secondItem.others)
+                  /*Text(secondItem.others)
                     .margin({ top: $r('app.float.home_list_margin') })
                     .fontSize($r('app.float.little_text_size'))
                     .fontColor($r('app.color.home_grid_fontColor'))
-
+*/
               }
               .alignItems(HorizontalAlign.Start)
             }
@@ -234,11 +234,11 @@ export default struct Home {
                   .fontWeight(FontWeight.Medium)
 
                   .backgroundColor(Color.White)
-                Text(secondItem.others)
+                /*Text(secondItem.others)
                   .margin({ top: $r('app.float.home_list_margin') })
                   .fontSize($r('app.float.little_text_size'))
                   .fontColor($r('app.color.home_grid_fontColor'))
-
+*/
               }
               .alignItems(HorizontalAlign.Start)
             }
