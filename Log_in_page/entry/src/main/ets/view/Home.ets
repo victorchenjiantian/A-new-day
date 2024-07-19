@@ -217,6 +217,43 @@ export default struct Home {
         .columnsGap($r('app.float.home_grid_columnsGap'))
         .rowsGap($r('app.float.home_grid_rowGap'))
         .margin({ bottom: $r('app.float.setting_button_bottom')})
+        Grid() {
+          ForEach(mainViewModel.getSecondGridData(), (secondItem: ItemData) => {
+            GridItem() {
+              Column() {
+
+                Text(secondItem.title)
+                  .fontSize($r('app.float.normal_text_size'))
+                  .fontWeight(FontWeight.Medium)
+
+                  .backgroundColor(Color.White)
+                Text(secondItem.others)
+                  .margin({ top: $r('app.float.home_list_margin') })
+                  .fontSize($r('app.float.little_text_size'))
+                  .fontColor($r('app.color.home_grid_fontColor'))
+
+              }
+              .alignItems(HorizontalAlign.Start)
+            }
+            .onClick(()=>{
+              this.start(secondItem.title);
+            })
+            .padding({ top: $r('app.float.home_list_padding'), left: $r('app.float.home_list_padding') })
+            .borderRadius($r('app.float.home_backgroundImage_borderRadius'))
+            .align(Alignment.TopStart)
+            .backgroundImage(secondItem.img)
+            .backgroundImageSize(ImageSize.Cover)
+            .width(CommonConstants.FULL_PARENT)
+            .height(CommonConstants.FULL_PARENT)
+          }, (secondItem: ItemData) => JSON.stringify(secondItem))
+        }
+        .width(CommonConstants.FULL_PARENT)
+        .height($r('app.float.home_secondGrid_height'))
+        .columnsTemplate('1fr 1fr')
+        .rowsTemplate('1fr 1fr')
+        .columnsGap($r('app.float.home_grid_columnsGap'))
+        .rowsGap($r('app.float.home_grid_rowGap'))
+        .margin({ bottom: $r('app.float.setting_button_bottom')})
         Button("进入")
           .position({ x:90 , y: 390 })
           .onClick(()=>{

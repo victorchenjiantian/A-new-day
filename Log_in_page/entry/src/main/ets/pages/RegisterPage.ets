@@ -116,11 +116,11 @@ struct LoginPage {
         .width($r('app.float.logo_image_size'))
         .height($r('app.float.logo_image_size'))
         .margin({ top: $r('app.float.logo_margin_top'), bottom: $r('app.float.logo_margin_bottom') })
-      Text("智绪监控")
+      Text("智序监控")
         .fontSize($r('app.float.page_title_text_size'))
         .fontWeight(FontWeight.Medium)
         .fontColor($r('app.color.title_text_color'))
-      Text("欢迎登录 智绪监控")
+      Text("欢迎登录 智序监控")
         .fontColor(Color.Gray)
         .fontSize(14)
         .margin({

@@ -133,11 +133,11 @@ struct LoginPage {
         .margin({
           top: "120vp"
         })
-      Text("智绪监控")
+      Text("智序监控")
         .fontSize($r('app.float.page_title_text_size'))
         .fontWeight(FontWeight.Medium)
         .fontColor($r('app.color.title_text_color'))
-      Text("欢迎登录 智绪监控")
+      Text("欢迎登录 智序监控")
         .fontColor(Color.Gray)
         .fontSize(14)
         .margin({
