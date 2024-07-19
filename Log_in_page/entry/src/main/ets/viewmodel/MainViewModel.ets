@@ -70,6 +70,16 @@ export class MainViewModel {
     return secondGridData;
   }
 
+  getThirdGridData(): Array<ItemData> {
+    let thirdGridData: ItemData[] = [
+      new ItemData($r('app.string.mainPage_top1'), $r('app.media.top'), $r('app.string.mainPage_text_top')),
+      new ItemData($r('app.string.mainPage_new1'), $r('app.media.new'), $r('app.string.mainPage_text_new')),
+      //new ItemData($r('app.string.mainPage_brand1'), $r('app.media.brand'), $r('app.string.mainPage_text_brand')),
+      //new ItemData($r('app.string.mainPage_found1'), $r('app.media.found'), $r('app.string.mainPage_text_found'))
+    ];
+    return thirdGridData;
+  }
+
 
   /**
    * Get data of the setting list.

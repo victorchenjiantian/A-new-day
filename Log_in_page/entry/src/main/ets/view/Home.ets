@@ -216,9 +216,16 @@ export default struct Home {
         .rowsTemplate('1fr 1fr')
         .columnsGap($r('app.float.home_grid_columnsGap'))
         .rowsGap($r('app.float.home_grid_rowGap'))
-        .margin({ bottom: $r('app.float.setting_button_bottom')})
+        //.margin({ bottom: $r('app.float.setting_button_bottom')})
+
+        Text($r('app.string.home_Addition'))
+          .fontSize($r('app.float.normal_text_size'))
+          .fontWeight(FontWeight.Medium)
+          .width(CommonConstants.FULL_PARENT)
+          .margin({ top: $r('app.float.home_text_margin') })
+
         Grid() {
-          ForEach(mainViewModel.getSecondGridData(), (secondItem: ItemData) => {
+          ForEach(mainViewModel.getThirdGridData(), (secondItem: ItemData) => {
             GridItem() {
               Column() {
 
@@ -271,6 +278,16 @@ export default struct Home {
           })
         Button("进入")
           .position({ x:260 , y: 525 })
+          .onClick(()=>{
+            this.start4();
+          })
+        Button("进入")
+          .position({ x:90 , y: 700 })
+          .onClick(()=>{
+            this.start3();
+          })
+        Button("进入")
+          .position({ x:260 , y: 700 })
           .onClick(()=>{
             this.start4();
           })
