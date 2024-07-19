@@ -54,7 +54,7 @@ struct MainIndex {
           .width($r('app.float.setting_account_size'))
           .height($r('app.float.setting_account_size'))
         Column() {
-          Text("SJTU")
+          Text("MATH PAPER")
             .fontSize($r('app.float.setting_account_fontSize'))
           Text("SJTU@love_you.com")
             .fontSize($r('app.float.little_text_size'))
@@ -86,15 +86,7 @@ struct MainIndex {
               //.fontWeight(FontWeight.Bold)
             .margin({ bottom: 0 })
             .padding({ left: 24})
-          Text("plan:  数学卷")
-            .height(15)
-            .textAlign(TextAlign.Start)
-            .fontSize(14)
-            .width("100%")
-            .fontColor($r('app.color.grey_divider'))
-              //.fontWeight(FontWeight.Bold)
-            .margin({top : 10, bottom: 1 })
-            .padding({ left: 24})
+
         }
         .alignItems(HorizontalAlign.Start)
         .margin({ left: $r('app.float.setting_account_margin') })
