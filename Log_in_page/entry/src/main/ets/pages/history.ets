@@ -35,45 +35,7 @@ struct history {
         Column() {
           Text("SJTU")
             .fontSize($r('app.float.setting_account_fontSize'))
-          Text("record time:  2024/7/18 12:30")
-            .height(15)
-            .textAlign(TextAlign.Start)
-            .fontSize(14)
-            .width("100%")
-            .fontColor($r('app.color.grey_divider'))
-              //.fontWeight(FontWeight.Bold)
-            .margin({top : 10, bottom: 10 })
-            .padding({ left: 24})
-          Text("状态 ：学习中")
-            .height(56)
-            .textAlign(TextAlign.Start)
-            .fontSize(14)
-            .width("100%")
-            .fontColor($r('app.color.grey_divider'))
-              //.fontWeight(FontWeight.Bold)
-            .margin({ bottom: 0 })
-            .padding({ left: 24})
-        }
-        .alignItems(HorizontalAlign.Start)
-        .margin({ left: $r('app.float.setting_account_margin') })
-      }
-      .margin({ top: $r('app.float.setting_account_margin') })
-      .alignItems(VerticalAlign.Center)
-      .width(CommonConstants.FULL_PARENT)
-      .height(200)
-      .backgroundColor(Color.White)
-      .padding({ left: $r('app.float.setting_account_padding') })
-      .borderRadius($r('app.float.setting_account_borderRadius'))
-
-
-      Row() {
-        Image($r('app.media.SJTU'))
-          .width($r('app.float.setting_account_size'))
-          .height($r('app.float.setting_account_size'))
-        Column() {
-          Text("SJTU")
-            .fontSize($r('app.float.setting_account_fontSize'))
-          Text("record time:  2024/7/18 14:30")
+          Text("record time:  2024/7/19 09:28:20")
             .height(15)
             .textAlign(TextAlign.Start)
             .fontSize(14)
@@ -104,6 +66,44 @@ struct history {
       .borderRadius($r('app.float.setting_account_borderRadius'))
 
 
+      Row() {
+        Image($r('app.media.SJTU'))
+          .width($r('app.float.setting_account_size'))
+          .height($r('app.float.setting_account_size'))
+        Column() {
+          Text("SJTU")
+            .fontSize($r('app.float.setting_account_fontSize'))
+          Text("record time:  2024/7/19 09:30:27")
+            .height(15)
+            .textAlign(TextAlign.Start)
+            .fontSize(14)
+            .width("100%")
+            .fontColor($r('app.color.grey_divider'))
+              //.fontWeight(FontWeight.Bold)
+            .margin({top : 10, bottom: 10 })
+            .padding({ left: 24})
+          Text("状态 ：学习中")
+            .height(56)
+            .textAlign(TextAlign.Start)
+            .fontSize(14)
+            .width("100%")
+            .fontColor($r('app.color.grey_divider'))
+              //.fontWeight(FontWeight.Bold)
+            .margin({ bottom: 0 })
+            .padding({ left: 24})
+        }
+        .alignItems(HorizontalAlign.Start)
+        .margin({ left: $r('app.float.setting_account_margin') })
+      }
+      .margin({ top: $r('app.float.setting_account_margin') })
+      .alignItems(VerticalAlign.Center)
+      .width(CommonConstants.FULL_PARENT)
+      .height(200)
+      .backgroundColor(Color.White)
+      .padding({ left: $r('app.float.setting_account_padding') })
+      .borderRadius($r('app.float.setting_account_borderRadius'))
+
+
 
       Row() {
         Image($r('app.media.SJTU'))
@@ -112,7 +112,7 @@ struct history {
         Column() {
           Text("SJTU")
             .fontSize($r('app.float.setting_account_fontSize'))
-          Text("record time:  2024/7/18 15:30")
+          Text("record time:  2024/7/19 09:31:16")
             .height(15)
             .textAlign(TextAlign.Start)
             .fontSize(14)
